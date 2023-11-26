@@ -1,0 +1,53 @@
+
+<%- include("partials/header.ejs") %>
+
+  <div class="header-content">
+    <h1>Welcome to My Bookshelf!</h1>
+    <h2 class="quote">Peek into my bookish brain and browse my literary log.</h2>
+    <form action="/" method="GET">
+      <select name="sort" class="sort-dropdown" onchange="this.form.submit()">
+        <option value="recency">Sort by Recency</option>
+        <option value="rating">Sort by Rating</option>
+      </select>
+    </form>
+  </div>
+
+  <div class="main-content">
+
+    <% books.forEach(book => { %>
+      <div class="book-container">
+        <div class="book-cover">
+          <img src="<%= book.cover_image_url %>" alt="Cover image for <%= book.title %>" />
+        </div>
+        <div class="book-details">
+          <h2><%= book.title %></h2>
+          <h3>by <%= book.author %></h3>
+          <p>Read on: <%= new Date(book.read_date).toLocaleDateString() %></p>
+          <% if (book.rating) { %>
+            <p>Rating: <%= book.rating %>/5</p>
+          <% } %>
+          <% if (book.notes && book.notes.length > 0) { %>
+            <div class="book-notes">
+              <h4>Notes:</h4>
+              <ul>
+                <% book.notes.forEach(note => { %>
+                  <li><%= note %></li>
+                <% }) %>
+              </ul>
+            </div>
+          <% } %>
+          <div class="actions">
+            <!-- Edit button -->
+            <a href="/edit-book/<%= book.id %>" class="edit-button">Edit</a>
+            
+            <!-- Delete form -->
+            <form action="/delete-book/<%= book.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this book?');">
+              <button type="submit" class="delete-button">Delete</button>
+            </form>
+          </div>          
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,47 @@
+<%- include("partials/header.ejs")  %>
+
+<div class="form-container">
+  <form action="/add-book" method="POST">
+    <div class="form-group">
+      <label for="title">Book Title</label>
+      <input type="text" id="title" name="title" placeholder="Enter the book title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="text" id="author" name="author" placeholder="Who wrote the book?" required>
+    </div>
+
+    <div class="form-group">
+      <label for="isbn">ISBN</label>
+      <input type="text" id="isbn" name="isbn" placeholder="1234567890123 (Optional)">
+    </div>
+
+    <div class="form-group">
+      <label for="read_date">Read Date</label>
+      <input type="date" id="read_date" name="read_date">
+    </div>
+
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <select id="rating" name="rating">
+        <option value="">Choose a rating (Optional)</option>
+        <option value="1">1 - Poor</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" placeholder="My thoughts on the book (Optional)"></textarea>
+    </div>
+
+    <button class="add-btn" type="submit">Add Book</button>
+  </form>
+</div>
+
+
+<%- include("partials/footer.ejs")  %>

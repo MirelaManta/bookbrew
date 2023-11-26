@@ -1,0 +1,388 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;;
+  margin: 0;
+  padding: 0;
+  background: rgb(218,192,163);
+  background: radial-gradient(circle, rgba(218,192,163,1) 0%, rgba(248,240,229,1) 100%);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.book-container {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  padding: 20px;
+  width: 55%; /* You can adjust the width as necessary */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover img {
+  max-width: 100%; /* Ensures image is not bigger than its container */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.book-details {
+  text-align: center;
+}
+
+.book-details h2 {
+  color: #333;
+  margin: 0;
+}
+
+.book-details h3 {
+  color: #555;
+  margin-top: 5px;
+}
+
+.book-notes {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.book-notes h4 {
+  margin-bottom: 5px;
+}
+
+.book-notes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.book-notes li {
+  background-color: #eee;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Ensure header takes the full width */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #102C57;
+  width: 100%;
+  color: #F8F0E5;
+}
+
+.header-content {
+  font-weight: 600;
+  text-align: center;
+  margin: 30px 0;
+  padding: 30px;
+  color: #102C57;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo i {
+  font-size: 2em; 
+  color: #DAC0A3; 
+  margin-right: 10px;
+}
+
+.logo-title {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #DAC0A3;
+}
+
+.sort-dropdown {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #eee;
+  color: #102C57;
+}
+
+
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin: 10px 0;
+  }
+}
+
+/* form styling */
+
+.form-container {
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  color: #102C57;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bolder;
+  color: #102C57;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.edit-button {
+  background-color: #FF9F45; 
+  color: white; /* Text color */
+}
+
+.delete-button {
+  background-color: #FC4F4F; 
+  color: white;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.add-note-btn {
+  padding: 10px;
+  background-color: #DAC0A3;
+  color: #102C57;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-right: 10px;
+  border: none;
+}
+
+.update-btn {
+  padding: 10px;
+  background-color: #007bff;
+  color:white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  border: none;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button[type="button"]:hover {
+  background-color: #EADBC8;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1rem;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: end; /* Align items to the end of the container */
+  gap: 10px; /* Adds space between the buttons */
+}
+
+.edit-button, .delete-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none; /* Removes underline from the link */
+  display: inline-block; /* Allows width and height to be set */
+  text-align: center; /* Centers text inside the link */
+}
+
+.edit-button:hover, .delete-button:hover {
+  opacity: 0.8; /* Slightly fade the button on hover */
+}
+
+
+/* About me page styling */
+.about-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 50px;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 300px; /* Adjust the size of the photo container */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(116, 43, 43, 0.15);
+  transform: rotate(2deg);
+  transition: transform 0.3s ease;
+  margin: 20px;
+}
+
+.about-image img {
+  width: 100%;
+  height:auto;
+  object-fit: contain;
+  transform: rotate(-1deg);
+}
+
+.about-image:hover {
+  transform: scale(1.05) rotate(0deg);
+}
+
+
+.about-content {
+  flex: 1;
+  max-width: 60%;
+  margin: 20px;
+  background: linear-gradient(to right, #fff, #f7f7f7);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Titillium Web', sans-serif;
+  color: #102C57;
+}
+
+.about-content h1 {
+  margin-bottom: 1rem;
+}
+.about-content p {
+  padding: 5px;
+}
+
+.highlight {
+  color: #7C83FD; /* or any color that fits your site's theme */
+  font-weight: bold;
+}
+
+.site-name {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.personal-quote blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+  color: #6b717e;
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid #7C83FD;
+  line-height: 1.6;
+}
+
+.cta-button {
+  background-color: #7C83FD;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #D8C3A5;
+}
+
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image, .about-content {
+    max-width: 100%;
+  }
+}
+
+.contact-section {
+  text-align: left;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-section h3 {
+  margin-bottom: 1rem;
+}
+
+.contact-section a {
+  color: #102C57;
+}
+
+
+.footer-text {
+  color: #102C57;
+}

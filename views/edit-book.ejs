@@ -1,0 +1,53 @@
+<%- include("partials/header.ejs")  %>
+
+  <div class="form-container">
+    <h2>Edit Book</h2>
+    <form action="/update-book/<%= book.id %>" method="POST">
+      <div class="form-group">
+        <label for="title">Book Title</label>
+        <input type="text" id="title" name="title" value="<%= book.title %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" value="<%= book.author %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <input type="text" id="isbn" name="isbn" value="<%= book.isbn %>">
+      </div>
+
+      <div class="form-group">
+        <label for="read_date">Read Date</label>
+        <input type="date" id="read_date" name="read_date" value="<%= book.read_date.toISOString().split('T')[0] %>">
+      </div>
+
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <select id="rating" name="rating">
+          <option value="">Choose a rating</option>
+          <option value="1" <%= book.rating == 1 ? 'selected' : '' %>>1 - Poor</option>
+          <option value="2" <%= book.rating == 2 ? 'selected' : '' %>>2 - Fair</option>
+          <option value="3" <%= book.rating == 3 ? 'selected' : '' %>>3 - Good</option>
+          <option value="4" <%= book.rating == 4 ? 'selected' : '' %>>4 - Very Good</option>
+          <option value="5" <%= book.rating == 5 ? 'selected' : '' %>>5 - Excellent</option>
+        </select>
+      </div>
+
+      <% if (book.notes && Array.isArray(book.notes)) { %>
+        <% book.notes.forEach(function(note) { %>
+          <div class="form-group">
+            <label for="note_<%= note.id %>">Note</label>
+            <textarea id="note_<%= note.id %>" name="notes[<%= note.id %>]" required><%= note.note_text %></textarea>
+          </div>
+        <% }); %>
+      <% } %>
+
+      <div id="notes-container"></div>
+      <button class="add-note-btn" type="button" onclick="addNote()">Add Another Note</button>
+
+      <button class="update-btn" type="submit">Update Book</button>
+    </form>
+  </div>
+<%- include("partials/footer.ejs")  %>
