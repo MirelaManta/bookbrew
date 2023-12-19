@@ -8,7 +8,7 @@ dotenv.config();
 
 const { Pool } = pg;
 const app = express();
-const port = 3000;
+const port = 3001;
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -255,5 +255,5 @@ app.get("/about", (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}.`);
+  console.log(`Server is running on http://127.0.0.1:${port}.`);
 });
